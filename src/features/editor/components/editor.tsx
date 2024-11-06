@@ -3,6 +3,10 @@
 import { useEditor } from "@/features/editor/hooks/useEditor";
 import { useEffect, useRef } from "react";
 import { fabric } from "fabric";
+import Navbar from "@/features/editor/components/Navbar";
+import Sidebar from "@/features/editor/components/sidebar"
+import Toolbar from "@/features/editor/components/toolbar";
+import Footer from "@/features/editor/components/footer";
 
 const Editor = () => {
 
@@ -17,6 +21,7 @@ const Editor = () => {
                 controlsAboveOverlay: true,
                 preserveObjectStacking: true,
             });
+
         init({
             initialCanvasWrapper: canvasWrapperRef.current!,
             initialCanvas: canvas
@@ -25,8 +30,16 @@ const Editor = () => {
 
     return (
         <div className="h-full flex flex-col">
-            <div className="h-full flex-1 bg-neutral-800" ref={canvasWrapperRef}>
-                <canvas ref={canvasRef} />
+            <Navbar />
+            <div className="flex absolute h-[calc(100%-56px)] w-full top-14">
+                <Sidebar />
+                <main className="flex relative flex-col overflow-auto bg-zinc-900 flex-1">
+                    <Toolbar />
+                    <div className="h-[calc(100%-96px)] flex-1 bg-zinc-900" ref={canvasWrapperRef}>
+                        <canvas ref={canvasRef} />
+                    </div>
+                    <Footer />
+                </main>
             </div>
         </div>
     );

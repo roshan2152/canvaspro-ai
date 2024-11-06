@@ -26,6 +26,10 @@ const Editor = () => {
             initialCanvasWrapper: canvasWrapperRef.current!,
             initialCanvas: canvas
         });
+
+        return () => {
+            canvas.dispose();
+        };
     }, [init])
 
     return (

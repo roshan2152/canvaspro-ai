@@ -3,7 +3,7 @@
 import { useEditor } from "@/features/editor/hooks/useEditor";
 import { useEffect, useRef } from "react";
 import { fabric } from "fabric";
-import Navbar from "@/features/editor/components/Navbar";
+import Navbar from "@/features/editor/components/navbar";
 import Sidebar from "@/features/editor/components/sidebar"
 import Toolbar from "@/features/editor/components/toolbar";
 import Footer from "@/features/editor/components/footer";
